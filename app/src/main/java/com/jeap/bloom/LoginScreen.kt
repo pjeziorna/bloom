@@ -1,10 +1,17 @@
 package com.jeap.bloom
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,12 +50,28 @@ private fun LoginHeader() {
 
 @Composable
 private fun EmailInput() {
-    BloomOutlinedTextField(value = "", onValueChange = {}, labelText = "Email address")
+    val email = remember {
+        mutableStateOf("")
+    }
+    BloomOutlinedTextField(
+        value = email.value,
+        onValueChange = { newString -> email.value = newString },
+        labelText = "Email address",
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+    )
 }
 
 @Composable
 private fun PasswordInput() {
-    BloomOutlinedTextField(value = "", onValueChange = {}, labelText = "Password (8+ characters)")
+    val password = remember {
+        mutableStateOf("")
+    }
+    BloomOutlinedTextField(
+        value = password.value,
+        onValueChange = { newString -> password.value = newString },
+        labelText = "Password (8+ characters)",
+        visualTransformation = PasswordVisualTransformation()
+    )
 }
 
 @Composable
