@@ -12,6 +12,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.jeap.bloom.components.BloomSecondaryButton
+import com.jeap.bloom.components.BloomTextButton
 import com.jeap.bloom.ui.theme.BloomTheme
 import com.jeap.bloom.ui.theme.Pink900
 import com.jeap.bloom.ui.theme.White
@@ -47,37 +49,12 @@ private fun WelcomeScreenContent() {
 
 @Composable
 private fun LoginButton() {
-    val isLight = MaterialTheme.colors.isLight
-    val textColor = if(isLight) {
-        Pink900
-    } else {
-        White
-    }
-
-    TextButton(
-        onClick = { /*TODO*/ },
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(48.dp)
-            .padding(horizontal = 16.dp),
-    ) {
-        Text(text = "Log in", color = textColor)
-    }
+    BloomTextButton(buttonText = "Log in")
 }
 
 @Composable
 private fun CreateAccountButton() {
-    Button(
-        onClick = { /*TODO*/ },
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(48.dp)
-            .padding(horizontal = 16.dp),
-        colors = ButtonDefaults.buttonColors(MaterialTheme.colors.secondary),
-        shape = MaterialTheme.shapes.medium,
-    ) {
-        Text(text = "Create account")
-    }
+    BloomSecondaryButton(buttonText = "Create account")
 }
 
 @Composable
@@ -104,7 +81,7 @@ private fun LogoImage() {
 
 @Composable
 private fun LeafBackground() {
-    val isLight = MaterialTheme.colors.isLight;
+    val isLight = MaterialTheme.colors.isLight
     val leafImage = if (isLight) {
         R.drawable.ic_light_welcome_illos
     } else {
@@ -119,8 +96,8 @@ private fun LeafBackground() {
 }
 
 @Composable
-private fun WelcomeBackground(): Unit {
-    val isLight = MaterialTheme.colors.isLight;
+private fun WelcomeBackground() {
+    val isLight = MaterialTheme.colors.isLight
 
     val backgroundImage = if (isLight) {
         R.drawable.ic_light_welcome_bg
