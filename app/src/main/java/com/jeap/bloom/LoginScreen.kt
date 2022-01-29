@@ -70,7 +70,8 @@ private fun PasswordInput() {
         value = password.value,
         onValueChange = { newString -> password.value = newString },
         labelText = "Password (8+ characters)",
-        visualTransformation = PasswordVisualTransformation()
+        visualTransformation = PasswordVisualTransformation(),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
     )
 }
 
